@@ -4,7 +4,7 @@ services:
     image: registry:2
     ports:
       - 5000:5000
-    volume:
+    volumes:
       - ./registry:/var/lib/registry
   app:
     image: jc21/registry-ui
@@ -15,7 +15,7 @@ services:
       - REGISTRY_SSL=false
       - REGISTRY_DOMAIN=104.248.38.167:5000
       - REGISTRY_STORAGE_DELETE_ENABLED=true
-      - REGISTRY_HTTP_SECRET=forn48f,a32
+      - REGISTRY_HTTP_SECRET=YOUR_SECRETE_HERE
     restart: on-failure
     depends_on:
       - registry
